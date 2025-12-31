@@ -13,6 +13,7 @@
 - [x] **Walkthrough & Documentation**
     - [x] Tạo `CNAME` cho domain `ksmart.com.es`.
     - [x] Đẩy mã nguồn lên GitHub.
+    - [x] Tổ chức lại thư mục dự án (tách riêng tài liệu và ứng dụng nội bộ).
 - [ ] **Giai đoạn 4: App Miễn phí (Thu hút người dùng)** <!-- id: 10 -->
     - [ ] Thiết kế công cụ đơn giản (Ví dụ: Personalizer Lite). <!-- id: 11 -->
     - [ ] Xây dựng cổng thu thập Email/Đăng nhập. <!-- id: 12 -->
