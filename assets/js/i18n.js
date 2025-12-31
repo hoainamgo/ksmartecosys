@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let currentLang = localStorage.getItem('ksmart_lang') || 'vi';
+    let currentLang = localStorage.getItem('ksmart_lang');
     let langData = {};
 
     // DOM Elements
@@ -12,20 +12,35 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             langData = data;
 
-            // Priority: LocalStorage -> GeoIP -> Default ('vi')
-            if (localStorage.getItem('ksmart_lang')) {
+            // Strategy: 
+            // 1. If user has manually selected preference (localStorage), use it.
+            // 2. If no preference, default to 'en' (Global SEO).
+            // 3. BUT, try to detect if user is in Vietnam. If proper VN IP -> switch to 'vi'.
+
+            if (currentLang) {
+                // User already chose a language, respect it.
                 updateContent();
             } else {
+                // Default to English first (so crawlers see EN, and fast load is EN)
+                currentLang = 'en';
+
+                // Then try async check
                 fetch('https://ipapi.co/json/')
                     .then(res => res.json())
                     .then(geo => {
-                        const detectedLang = (geo.country_code === 'VN') ? 'vi' : 'en';
-                        currentLang = detectedLang;
+                        // Only switch to VI if explicitly in Vietnam
+                        if (geo.country_code === 'VN') {
+                            currentLang = 'vi';
+                        }
                         updateContent();
                     })
                     .catch(err => {
+                        // Fallback/Error -> Stay on English
                         updateContent();
                     });
+
+                // Initial render with English immediately
+                updateContent();
             }
         })
         .catch(err => console.error('Error loading language file:', err));
