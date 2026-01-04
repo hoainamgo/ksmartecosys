@@ -22,6 +22,8 @@
     --gradient-gold: linear-gradient(135deg, #FFB800 0%, #FF9900 100%);
     --gradient-cosmic: linear-gradient(to right, #FFB800, #FF5E00, #6366F1);
     /* Fire & Ice */
+    --gradient-vibrant: linear-gradient(to right, #FFB800, #FF5E00, #FF0055);
+    /* Vibrant Gold-Red */
 
     /* Text */
     --text: #FFFFFF;
@@ -103,6 +105,14 @@ h2 {
 
 .text-gradient {
     background: var(--gradient-cosmic);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.text-gradient-vibrant {
+    background: var(--gradient-vibrant);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -270,16 +280,97 @@ h2 {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
-    position: absolute;
-    /* Centering trick */
-    left: 50%;
-    transform: translateX(-50%);
+    gap: 1.5rem;
+    position: relative;
+    /* Removed absolute centering to prevent overlap */
+    margin: 0 auto;
+    /* Center in available space */
     background: rgba(255, 255, 255, 0.03);
     padding: 0.5rem 1.5rem;
     border-radius: 100px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+/* Auth Dropdown Styling */
+/* Auth Dropdown Styling */
+.auth-dropdown {
+    position: relative;
+    padding-bottom: 5px;
+    /* Tiny buffer */
+}
+
+/* Dropdown Menu - Override inline styles for consistency */
+.auth-dropdown-menu {
+    z-index: 1000 !important;
+    margin-top: 10px;
+}
+
+/* Invisible Bridge to prevent closing */
+.auth-dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: transparent;
+}
+
+.auth-dropdown:hover .auth-dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-top: 10px;
+    /* Keep consistent distance */
+}
+
+.auth-dropdown-menu .dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Auth Modal Styling */
+#auth-modal {
+    display: none;
+    /* Logic will toggle flex */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    /* Slightly darker for focus */
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+
+    /* Perfect Center */
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#auth-modal[style*="flex"] {
+    display: flex !important;
+}
+
+#auth-modal .glass-card {
+    margin: auto !important;
+    /* Safety net for flexbox */
+    max-height: 90vh;
+    overflow-y: auto;
+    /* Handle small screens */
+    animation: none !important;
+    /* Disable any existing animations that might shift it */
+    transform: none !important;
+    /* Disable transforms that might shift it */
+}
+
+/* Nav Links - Center Alignment */
+.header-container {
+    justify-content: space-between;
+    /* Ensure Logo - Nav - CTA spread out */
+}
+
 
 .nav-link {
     color: var(--text-muted);
@@ -316,6 +407,54 @@ h2 {
     border-radius: 50px;
 }
 
+/* Auth Input Styles */
+.input-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.input-wrapper i {
+    color: var(--text-muted);
+    font-size: 1rem;
+    min-width: 20px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 1rem 0.8rem;
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.input-wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
 @media (max-width: 900px) {
     .nav-links {
         position: relative;
@@ -324,9 +463,11 @@ h2 {
         background: none;
         border: none;
         padding: 0;
-        gap: 1rem;
-        display: none;
-        /* Hide on mobile for now or implement burger */
+        gap: 0.8rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* Responsive: show menu but smaller */
     }
 }
 

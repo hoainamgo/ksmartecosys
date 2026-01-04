@@ -15,7 +15,10 @@
                     Thái</span> <i class="fas fa-chevron-down" style="font-size:0.7rem; margin-left:4px;"></i></a>
             <div class="dropdown-menu">
                 <a href="https://x10ai.ksmart.com.es/index.html" target="_blank" class="dropdown-item">
-                    <i class="fas fa-rocket text-gradient"></i> X10 Creator Kits
+                    <i class="fas fa-rocket text-gradient-vibrant"></i> X10 Creator Kits
+                </a>
+                <a href="https://research.ksmart.com.es/" target="_blank" class="dropdown-item">
+                    <i class="fas fa-flask text-gradient-vibrant"></i> Ksmart Research
                 </a>
             </div>
         </div>
@@ -23,14 +26,137 @@
         <a href="index.html#modules" class="nav-link" data-i18n="nav_solutions">Giải Pháp</a>
         <a href="#academy" class="nav-link" data-i18n="nav_academy">Học Viện</a>
         <a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+
+        <!-- About Dropdown -->
+        <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-trigger" data-i18n="nav_about">About <i class="fas fa-chevron-down"
+                    style="font-size:0.7rem; margin-left:4px;"></i></a>
+            <div class="dropdown-menu">
+                <a href="#about" class="dropdown-item">
+                    <i class="fas fa-info-circle text-gradient"></i> <span data-i18n="nav_about_us">Về chúng tôi</span>
+                </a>
+                <a href="mailto:info@ksmart.com.es" class="dropdown-item">
+                    <i class="fas fa-envelope text-gradient"></i> info@ksmart.com.es
+                </a>
+            </div>
+        </div>
     </nav>
 
     <div class="cta-group" style="display:flex; align-items:center;">
+
+        <!-- Auth Group with Dropdown -->
+        <div class="auth-dropdown" style="position:relative; margin-right: 1.5rem;">
+            <!-- Main Button -->
+            <a href="#" class="btn-primary header-btn" data-i18n="nav_join"
+                style="display:flex; align-items:center; gap:5px;">
+                Tham gia <i class="fas fa-chevron-down" style="font-size:0.7rem; opacity:0.8;"></i>
+            </a>
+
+            <!-- Dropdown on Hover -->
+            <div class="auth-dropdown-menu"
+                style="position:absolute; top:100%; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.8); border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(10px); border-radius:12px; padding:0.5rem; min-width:140px; opacity:0; visibility:hidden; transition:all 0.3s; display:flex; flex-direction:column; gap:5px; margin-top:10px;">
+                <a href="#" class="dropdown-item" data-i18n="nav_login"
+                    style="color:white; padding:0.5rem 1rem; text-decoration:none; font-size:0.9rem; display:block; text-align:center; border-radius:8px; transition:background 0.3s;">Đăng
+                    nhập</a>
+            </div>
+        </div>
+
+        <!-- Language Toggle (Moved to Right) -->
         <button id="lang-toggle" class="btn-glass"
-            style="display:flex; align-items:center; gap:8px; margin-right: 1.5rem; padding: 0.4rem 1rem; border-radius: 50px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease;">
+            style="display:flex; align-items:center; gap:8px; padding: 0.4rem 1rem; border-radius: 50px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease;">
             <span style="font-size: 1.2rem; line-height: 1;">🇻🇳</span>
             <span style="font-weight: 600; font-size: 0.9rem; color: white;">VI</span>
         </button>
-        <a href="#footer" class="btn-primary header-btn" data-i18n="nav_contact">Liên Hệ</a>
+    </div>
+</div>
+
+<!-- AUTH MODAL (Premium Glass) -->
+<!-- AUTH MODAL (Premium Glass) -->
+<div id="auth-modal" style="display:none;">
+    <div class="glass-card"
+        style="width:100%; max-width:400px; padding:2.5rem; position:relative; animation: float 0s;">
+        <!-- Close -->
+        <span class="close-modal"
+            style="position:absolute; top:15px; right:20px; font-size:1.5rem; cursor:pointer; color:var(--text-muted);">&times;</span>
+
+        <h2 id="modal-title" class="text-gradient" style="text-align:center; font-size:2rem; margin-bottom:1.5rem;">Đăng
+            ký</h2>
+
+        <form id="auth-form" style="display:flex; flex-direction:column; gap:1rem;">
+            <!-- Fields -->
+
+            <!-- Full Name -->
+            <div id="field-fullname" class="input-group">
+                <label>HỌ VÀ TÊN</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="input-fullname" placeholder="Nguyễn Văn A">
+                </div>
+            </div>
+
+            <!-- Username (New) -->
+            <div id="field-username" class="input-group">
+                <label>TÊN ĐĂNG NHẬP</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-user-circle"></i>
+                    <input type="text" id="input-username" placeholder="username123">
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <label>EMAIL</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="input-email" required placeholder="email@example.com">
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div id="field-phone" class="input-group">
+                <label>SỐ ĐIỆN THOẠI</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" id="input-phone" placeholder="0912 345 678">
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+                <label>MẬT KHẨU</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="input-password" required placeholder="●●●●●●●●">
+                    <i class="fas fa-eye toggle-password" style="cursor:pointer; pointer-events:all;"></i>
+                </div>
+            </div>
+
+            <!-- Referral Code (New) -->
+            <div id="field-referral" class="input-group">
+                <label>MÃ GIỚI THIỆU (không bắt buộc)</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-gift"></i>
+                    <input type="text" id="input-referral" placeholder="VD: PROMO2025">
+                </div>
+            </div>
+
+            <!-- Terms (New) -->
+            <div id="field-terms"
+                style="display:flex; align-items:center; gap:10px; font-size:0.85rem; color:var(--text-muted);">
+                <input type="checkbox" id="input-terms" style="width:16px; height:16px; accent-color:var(--primary);">
+                <label for="input-terms">Tôi đồng ý với <a href="#" style="color:white;">Điều khoản sử dụng</a> và <a
+                        href="#" style="color:white;">Chính sách bảo mật</a></label>
+            </div>
+
+            <button type="submit" id="auth-submit-btn" class="btn-primary"
+                style="margin-top:0.5rem; border:none; cursor:pointer; width:100%; justify-content:center; padding:1rem; font-size:1rem;">
+                Đăng ký ngay <i class="fas fa-arrow-right" style="margin-left:8px;"></i>
+            </button>
+        </form>
+
+        <div style="text-align:center; margin-top:1.5rem; font-size:0.9rem;">
+            <a href="#" id="auth-switch-mode" style="color:var(--text-muted); text-decoration:none;">Đã có tài khoản?
+                <span class="text-gold">Đăng nhập</span></a>
+        </div>
     </div>
 </div>

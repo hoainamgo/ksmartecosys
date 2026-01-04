@@ -21,10 +21,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Dispatch event to notify that components are loaded
     document.dispatchEvent(new Event('ksmart-components-loaded'));
 
-    // Also dispatch for Auth logic to bind events if it loaded first
-    window.ksmartUIReady = true;
-    document.dispatchEvent(new Event('KSMART_UI_READY'));
-
     // Highlight active link
     const path = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-link');

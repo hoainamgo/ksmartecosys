@@ -1,6 +1,6 @@
 {
     "vi": {
-        "nav_about": "Về Ksmart",
+        "nav_about": "Về chúng tôi",
         "nav_values": "Giá Trị",
         "nav_products": "Giải Pháp",
         "nav_cta": "Nhận Tool Free",
@@ -32,10 +32,14 @@
         "eco_planet_tech": "💻 Công Nghệ",
         "eco_planet_community": "👥 Community",
         "eco_planet_academy": "📚 Học Viện",
-        "bento_pill_title": "Các Trụ Cột Chính"
+        "bento_pill_title": "Các Trụ Cột Chính",
+        "nav_join": "Tham gia",
+        "nav_login": "Đăng nhập",
+        "nav_register": "Đăng ký",
+        "nav_about_us": "Về chúng tôi"
     },
     "en": {
-        "nav_about": "About Ksmart",
+        "nav_about": "About",
         "nav_values": "Values",
         "nav_products": "Solutions",
         "nav_cta": "Get Free Tools",
@@ -74,6 +78,10 @@
         "nav_academy": "Academy",
         "nav_blog": "Blog",
         "nav_contact": "Contact",
+        "nav_join": "Join",
+        "nav_login": "Login",
+        "nav_register": "Register",
+        "nav_about_us": "About Us",
         "story_badge": "The Journey",
         "story_title": "From 'Self-Employed' <br> To <span class='text-gold'>Freedom</span>",
         "story_p1": "There were days I looked in the mirror and asked myself: <b>'Do I own the business, or does the business own me?'</b>.",
