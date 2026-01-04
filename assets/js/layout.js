@@ -13,17 +13,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Load Header & Footer
-    await Promise.all([
-        loadComponent('app-header', 'components/header.html'),
-        loadComponent('app-footer', 'components/footer.html')
-    ]);
-
-    // Dispatch event to notify that components are loaded
-    document.dispatchEvent(new Event('ksmart-components-loaded'));
-
-    // Also dispatch for Auth logic to bind events if it loaded first
-    window.ksmartUIReady = true;
-    document.dispatchEvent(new Event('KSMART_UI_READY'));
+    try {
+        await Promise.all([
+            loadComponent('app-header', 'components/header.html'),
+            loadComponent('app-footer', 'components/footer.html')
+        ]);
+    } catch (err) {
+        console.error('Critical components failed to load:', err);
+    } finally {
+        // Dispatch event even if something failed to prevent total JS hang
+        window.ksmartComponentsLoaded = true;
+        document.dispatchEvent(new Event('ksmart-components-loaded'));
+        window.ksmartUIReady = true;
+        document.dispatchEvent(new Event('KSMART_UI_READY'));
+    }
 
     // Highlight active link
     const path = window.location.pathname;

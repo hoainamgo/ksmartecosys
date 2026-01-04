@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Ksmart Ecosys</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=48">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        .dashboard-hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .poster-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 4rem auto;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .poster-container img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .poster-container:hover img {
+            transform: scale(1.02);
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .app-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(255, 184, 0, 0.1);
+        }
+
+        .app-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .onboarding-steps {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 30px;
+            padding: 3rem;
+            margin-top: 6rem;
+            border: 1px dashed var(--glass-border);
+        }
+
+        .step-list {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 200px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ambient Background -->
+    <div class="ambient-glow">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header id="app-header" class="glass-header"></header>
+
+    <main class="container">
+        <!-- HERO -->
+        <section class="dashboard-hero">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;" data-i18n="welcome_title">Welcome to Ksmart Ecosys 🚀</h1>
+            <p style="color: var(--text-muted); font-size: 1.2rem;" data-i18n="welcome_desc">Start your journey to x10
+                performance today.</p>
+
+            <div class="poster-container" data-aos="zoom-in">
+                <img src="assets/img/ksmart_ecosystem_poster.png" alt="Ksmart Ecosystem Poster">
+            </div>
+        </section>
+
+        <!-- APP GRID -->
+        <section style="margin-bottom: 8rem;">
+            <div class="app-grid">
+                <!-- YT TRACKER -->
+                <div class="app-card">
+                    <i class="fab fa-youtube"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;" data-i18n="welcome_app_yt_title">YT Tracker</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;" data-i18n="welcome_app_yt_desc">Automate
+                        your YouTube channel management.</p>
+                    <a href="https://yt.ksmart.com.es" target="_blank" class="btn-primary"
+                        style="padding: 0.6rem 1.5rem; font-size: 0.9rem;" data-i18n="welcome_btn_explore">Access
+                        Now</a>
+                </div>
+
+                <!-- AI CREATIVE -->
+                <div class="app-card">
+                    <i class="fas fa-magic"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;" data-i18n="welcome_app_ai_title">AICreative</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;" data-i18n="welcome_app_ai_desc">Unlimited
+                        content creation with AI power.</p>
+                    <a href="https://ai.ksmart.com.es" target="_blank" class="btn-primary"
+                        style="padding: 0.6rem 1.5rem; font-size: 0.9rem;" data-i18n="welcome_btn_explore">Access
+                        Now</a>
+                </div>
+
+                <!-- X10 CREATOR KITS -->
+                <div class="app-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;" data-i18n="welcome_app_x10_title">X10 Creator
+                        Kits</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;" data-i18n="welcome_app_x10_desc">
+                        Ready-to-use AI templates and marketing
+                        kits.</p>
+                    <a href="https://x10ai.ksmart.com.es/index.html" target="_blank" class="btn-primary"
+                        style="padding: 0.6rem 1.5rem; font-size: 0.9rem;" data-i18n="welcome_btn_explore">Access
+                        Now</a>
+                </div>
+
+                <!-- RESEARCH -->
+                <div class="app-card">
+                    <i class="fas fa-flask"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;" data-i18n="welcome_app_research_title">Ksmart
+                        Research</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;" data-i18n="welcome_app_research_desc">
+                        Explore latest AI research and business
+                        insights.</p>
+                    <a href="https://research.ksmart.com.es/" target="_blank" class="btn-primary"
+                        style="padding: 0.6rem 1.5rem; font-size: 0.9rem;" data-i18n="welcome_btn_explore">Access
+                        Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ONBOARDING GUIDE -->
+        <section class="onboarding-steps">
+            <h2 style="font-size: 2rem; text-align: center;" data-i18n="welcome_step_title">Onboarding Roadmap</h2>
+            <div class="step-list">
+                <div class="step-item" data-i18n="welcome_step_1">1. Explore the Ecosystem via Poster</div>
+                <div class="step-item" data-i18n="welcome_step_2">2. Access Automation tools below</div>
+                <div class="step-item" data-i18n="welcome_step_3">3. Join Zalo Group for 1:1 Support</div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="app-footer"></footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-client.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/i18n.js"></script>
+
+    <script>
+        // Security: Redirect back to home if no user session
+        document.addEventListener('KSMART_UI_READY', async () => {
+            const { data: { user } } = await window.supabaseClient.auth.getUser();
+            if (!user) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+
+</html>

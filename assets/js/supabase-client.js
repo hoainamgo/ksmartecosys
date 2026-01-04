@@ -13,8 +13,14 @@ if (typeof supabase === 'undefined') {
     console.error('Supabase JS SDK not loaded! Please check index.html');
 }
 
-// Initialize Client
-const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+// Initialize Client with persistence enabled
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+    auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true
+    }
+});
 
 // Export for use in other files
 window.supabaseClient = _supabase;
