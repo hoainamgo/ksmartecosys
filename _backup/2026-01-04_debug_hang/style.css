@@ -1,0 +1,1495 @@
+/* Base & Tokens - COSMIC LUXURY EDITION (Vibrant) */
+:root {
+    /* Palette: Deep Space & Electric Amber */
+    --primary: #FFB800;
+    /* Electric Amber */
+    --primary-soft: #FFD65C;
+    /* Soft Sun */
+    --primary-dim: #B38600;
+    /* Deep Gold */
+    --accent: #6366F1;
+    /* Indigo (Tech Glow) */
+
+    /* Backgrounds - Cosmic Depth */
+    --dark: #050510;
+    /* Deepest Blue/Black */
+    --dark-surface: #0E0E1B;
+    /* Surface Blue */
+    --dark-lighter: #161625;
+    /* Lighter Blue */
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, #FFB800 0%, #FF9900 100%);
+    --gradient-cosmic: linear-gradient(to right, #FFB800, #FF5E00, #6366F1);
+    /* Fire & Ice */
+    --gradient-vibrant: linear-gradient(to right, #FFB800, #FF5E00, #FF0055);
+    /* Vibrant Gold-Red */
+
+    /* Text */
+    --text: #FFFFFF;
+    /* Pure White */
+    --text-muted: #94A3B8;
+    /* Blue Grey (Slate) */
+    --text-gold: #FFB800;
+
+    /* Glassmorphism - Crystallized */
+    --glass-bg: rgba(20, 25, 40, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(25px);
+
+    /* Fonts */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+
+    /* Shapes */
+    --radius-sm: 8px;
+    --radius-md: 20px;
+    --radius-lg: 32px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark);
+    /* Subtle Grid Pattern for Tech Feel */
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--text);
+}
+
+h1 {
+    font-size: 4.5rem;
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+.text-gradient {
+    background: var(--gradient-cosmic);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.text-gradient-vibrant {
+    background: var(--gradient-vibrant);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.text-gold {
+    color: var(--primary);
+}
+
+/* Modern Bento Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+    gap: 1.5rem;
+}
+
+.bento-item {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.bento-item:hover {
+    border-color: rgba(230, 200, 152, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+.bento-span-2 {
+    grid-column: span 2;
+}
+
+.bento-span-3 {
+    grid-column: span 3;
+}
+
+.bento-row-2 {
+    grid-row: span 2;
+}
+
+/* Layout & Grid */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    position: relative;
+    z-index: 1;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Refined Glass Card (Cleaner) */
+.glass-card {
+    background: rgba(20, 21, 26, 0.6);
+    /* Darker, cleaner */
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* More subtle border */
+    border-radius: 24px;
+    padding: 3rem;
+    transition: 0.4s;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0.5;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    border-color: rgba(230, 200, 152, 0.2);
+}
+
+/* Badge Style */
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    background: rgba(230, 200, 152, 0.1);
+    border: 1px solid rgba(230, 200, 152, 0.2);
+    border-radius: 50px;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5px;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary);
+    color: var(--dark);
+    padding: 1rem 2.5rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: #F3E5D0;
+    box-shadow: 0 0 20px rgba(230, 200, 152, 0.3);
+    transform: scale(1.02);
+}
+
+/* Navigation - Compact & Centered */
+.glass-header {
+    background: rgba(5, 5, 16, 0.6);
+    /* More transparent */
+    backdrop-filter: blur(20px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0.8rem 0;
+    /* Reduced padding for compact look */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo span {
+    font-size: 1.3rem;
+    /* Smaller logo text */
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    /* Removed absolute centering to prevent overlap */
+    margin: 0 auto;
+    /* Center in available space */
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.5rem 1.5rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Auth Dropdown Styling */
+/* Auth Dropdown Styling */
+.auth-dropdown {
+    position: relative;
+    padding-bottom: 5px;
+    /* Tiny buffer */
+}
+
+/* Dropdown Menu - Override inline styles for consistency */
+.auth-dropdown-menu {
+    z-index: 1000 !important;
+    margin-top: 10px;
+}
+
+/* Invisible Bridge to prevent closing */
+.auth-dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: transparent;
+}
+
+.auth-dropdown:hover .auth-dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-top: 10px;
+    /* Keep consistent distance */
+}
+
+.auth-dropdown-menu .dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Auth Modal Styling */
+#auth-modal {
+    display: none;
+    /* Logic will toggle flex */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    /* Slightly darker for focus */
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+
+    /* Perfect Center */
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#auth-modal[style*="flex"] {
+    display: flex !important;
+}
+
+#auth-modal .glass-card {
+    margin: auto !important;
+    /* Safety net for flexbox */
+    max-height: 90vh;
+    overflow-y: auto;
+    /* Handle small screens */
+    animation: none !important;
+    /* Disable any existing animations that might shift it */
+    transform: none !important;
+    /* Disable transforms that might shift it */
+}
+
+/* Nav Links - Center Alignment */
+.header-container {
+    justify-content: space-between;
+    /* Ensure Logo - Nav - CTA spread out */
+}
+
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    /* Smaller, neater font */
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
+    padding: 0.2rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    border-radius: 2px;
+}
+
+/* Compact Header Button */
+.header-btn {
+    padding: 0.5rem 1.2rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 50px;
+}
+
+/* Auth Input Styles */
+.input-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.input-wrapper i {
+    color: var(--text-muted);
+    font-size: 1rem;
+    min-width: 20px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 1rem 0.8rem;
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.input-wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        position: relative;
+        left: auto;
+        transform: none;
+        background: none;
+        border: none;
+        padding: 0;
+        gap: 0.8rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* Responsive: show menu but smaller */
+    }
+}
+
+/* Ambient Background Blobs (Cosmic Nebula) */
+.ambient-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    /* Increased opacity */
+    animation: floating 20s infinite alternate;
+}
+
+.blob-1 {
+    top: -20%;
+    left: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.25), transparent);
+    /* Indigo glow */
+}
+
+.blob-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(255, 184, 0, 0.15), transparent);
+    /* Gold glow */
+    animation-delay: -5s;
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 50px rgba(99, 102, 241, 0.6);
+        border-color: rgba(99, 102, 241, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Bento Grid Icons */
+.bento-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.4));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bento-item:hover .bento-icon {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Specific Section Adjustments for "Fluidity" */
+.hero-visual img {
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Blog Grid */
+.blog-date {
+    font-size: 0.8rem;
+    color: var(--primary-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.read-more {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary-dim);
+    padding-bottom: 2px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.read-more:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* --- ECOSYSTEM COSMIC MAP --- */
+.ecosystem-container {
+    position: relative;
+    width: 650px;
+    height: 550px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+}
+
+.orbit-1 {
+    width: 300px;
+    height: 300px;
+    animation: spin 20s linear infinite;
+    margin: 0 auto;
+    /* transform: rotateX(40deg) scale(0.8); Remove tilt if we want flat 2D looking 3D, or keep for depth */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 3D Sun Core */
+.core-node {
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle at 30% 30%, #FFD700, #FF8C00, #FF4500);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:
+        0 0 60px rgba(255, 140, 0, 0.6),
+        inset -10px -10px 20px rgba(0, 0, 0, 0.5);
+    animation: pulse-core 4s ease-in-out infinite;
+}
+
+.core-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #3e1f00;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Orbits */
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Faint rings */
+    border-radius: 50%;
+}
+
+.orbit-1 {
+    width: 320px;
+    height: 320px;
+    animation: spin 30s linear infinite;
+}
+
+.orbit-2 {
+    width: 520px;
+    height: 520px;
+    animation: spin-reverse 45s linear infinite;
+}
+
+/* Planet Nodes */
+.planet {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    /* Start at top center of orbit */
+    transform: translate(-50%, -50%);
+    /* Center on the line */
+
+    background: rgba(10, 10, 25, 0.9);
+    border: 1px solid rgba(255, 184, 0, 0.3);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+/* Maintain upright text while orbiting? 
+   If the parent (.orbit) spins, the child (.planet) will spin with it.
+   To keep text upright, we would need counter-rotation or different animation tech.
+   For simplicity in CSS-only, we can just let them spin or use specific positions without parent rotation if desired.
+   However, for 'Cosmic', spinning orbits are cool. Let's try to set fixed positions first to match the static design requested "Hình tròn giữa 3d lên" (maybe static?).
+   
+   Actually, let's STOP animations for now to ensure readability and exact positioning as per the image.
+   The user uploaded a static diagram.
+*/
+
+.orbit-1,
+.orbit-2 {
+    animation: none;
+    /* Static for layout per image */
+}
+
+/* Custom Positions on Orbit using Trig or just absolute percentages */
+/* We can use transform rotate on a wrapper, then counter-rotate the item? 
+   Or just top/left/right/bottom positioning. 
+*/
+
+/* Inner Ring (Orbit 1) */
+.planet-1 {
+    top: 15%;
+    left: 85%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Tư Duy */
+.planet-2 {
+    top: 85%;
+    left: 85%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Công Nghệ */
+.planet-3 {
+    top: 85%;
+    left: 15%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Con Người */
+/* Wait, simple positioning is better */
+
+/* Let's use the transform origin method for precise placement if we want them distributed */
+/* Or simple absolute positioning if we know exactly where they go */
+
+/* RE-APPROACH: 
+   Let's keep the orbits as visual guides (borders).
+   Place planets absolutely relative to the container.
+*/
+
+.planet-pos-1 {
+    top: 20%;
+    left: 20%;
+    transform: rotate(-20deg);
+}
+
+/* Tư Duy */
+.planet-pos-2 {
+    top: 15%;
+    right: 20%;
+    transform: rotate(20deg);
+}
+
+/* Công Nghệ */
+.planet-pos-3 {
+    bottom: 20%;
+    left: 25%;
+    transform: rotate(15deg);
+}
+
+/* Con Người */
+
+/* Wait, let's map to the user image layout:
+   Center: Ksmart
+   Surrounding:
+   - Identify (Left)
+   - Tu Duy (Top Left)
+   - Cong Nghe (Top Right)
+   - Community (Top Far Right)
+   - Automation (Bottom Right)
+   - Con Nguoi (Bottom)
+*/
+
+.planet {
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    /* Gold border */
+    background: #050510;
+    padding: 0.6rem 1.5rem;
+}
+
+/* Specific Positions (Relative to 600x600 container) */
+/* Center is 300,300 */
+
+/* Specific Planet Positions (Relative to 600x600 container) */
+.planet-tuduy {
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    transform: rotate(-15deg);
+}
+
+.planet-congnghe {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%) rotate(8deg);
+}
+
+.planet-connguoi {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-8deg);
+}
+
+.planet-identity {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform: translateY(-50%) rotate(-5deg);
+}
+
+.planet-community {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    transform: rotate(10deg);
+}
+
+.planet-auto {
+    position: absolute;
+    bottom: 20%;
+    right: 8%;
+    transform: rotate(-10deg);
+}
+
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-reverse {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes pulse-core {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 50px rgba(255, 140, 0, 0.5);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 80px rgba(255, 140, 0, 0.8);
+    }
+}
+
+/* Abstract Floating Shapes */
+.floating-shape {
+    position: absolute;
+    border: 1px solid rgba(255, 184, 0, 0.2);
+    border-radius: 30px;
+    z-index: 1;
+    /* Below core (10) but visible */
+    pointer-events: none;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.0));
+    backdrop-filter: blur(2px);
+}
+
+.shape-1 {
+    width: 200px;
+    height: 500px;
+    /* Tall */
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    border-color: rgba(255, 184, 0, 0.3);
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    /* Large box */
+    top: 55%;
+    left: 60%;
+    transform: translate(-50%, -50%) rotate(10deg);
+    border-color: rgba(255, 184, 0, 0.15);
+}
+
+/* Update Core Z-Index to stay on top */
+.core-node {
+    z-index: 20;
+}
+
+/* Update Planets Z-Index */
+.planet {
+    z-index: 15;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .glass-card {
+        padding: 2rem;
+    }
+
+    .ecosystem-container {
+        height: 400px;
+        transform: scale(0.6);
+    }
+}
+
+/* Bento Grid "Overflow" Icons */
+.bento-bg-icon {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 240px;
+    /* Slightly larger */
+    height: 240px;
+    object-fit: contain;
+    opacity: 0.6;
+    mix-blend-mode: screen;
+    /* Keep blend mode */
+    transform: rotate(15deg);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 0;
+    pointer-events: none;
+
+    /* Fade edges for better blending */
+    -webkit-mask-image: linear-gradient(135deg, black 40%, transparent 90%);
+    mask-image: linear-gradient(135deg, black 40%, transparent 90%);
+}
+
+/* Bento Item Card Style Override for Gold Border */
+.bento-item {
+    border: 1px solid rgba(255, 165, 0, 0.25) !important;
+    /* Orange/Gold border */
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)) !important;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    /* Ensure blended icon stays inside */
+}
+
+.bento-item:hover {
+    border-color: rgba(255, 165, 0, 0.6) !important;
+    box-shadow: 0 15px 50px -10px rgba(255, 165, 0, 0.15);
+}
+
+/* Specific adjustment for smaller cards */
+
+/* Specific adjustment for smaller cards */
+.bento-item:not(.bento-span-2) .bento-bg-icon {
+    width: 160px;
+    height: 160px;
+    top: -20px;
+    right: -20px;
+}
+
+.bento-item:hover .bento-bg-icon {
+    transform: rotate(0deg) scale(1.1) translate(-10px, 10px);
+    opacity: 0.8;
+}
+
+.bento-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Align text to bottom */
+}
+
+/* Dropdown Menu */
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-trigger {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 220px;
+    background: rgba(10, 10, 30, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.2rem;
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+.dropdown-item:hover {
+    background: rgba(255, 184, 0, 0.1);
+    color: var(--primary);
+}
+
+.dropdown-item i {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+@keyframes spin-reverse {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes pulse-core {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 50px rgba(255, 140, 0, 0.5);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 80px rgba(255, 140, 0, 0.8);
+    }
+}
+
+/* Abstract Floating Shapes */
+.floating-shape {
+    position: absolute;
+    border: 1px solid rgba(255, 184, 0, 0.2);
+    border-radius: 30px;
+    z-index: 1;
+    /* Below core (10) but visible */
+    pointer-events: none;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.0));
+    backdrop-filter: blur(2px);
+}
+
+.shape-1 {
+    width: 200px;
+    height: 500px;
+    /* Tall */
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    border-color: rgba(255, 184, 0, 0.3);
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    /* Large box */
+    top: 55%;
+    left: 60%;
+    transform: translate(-50%, -50%) rotate(10deg);
+    border-color: rgba(255, 184, 0, 0.15);
+}
+
+/* Update Core Z-Index to stay on top */
+.core-node {
+    z-index: 20;
+}
+
+/* Update Planets Z-Index */
+.planet {
+    z-index: 15;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .glass-card {
+        padding: 2rem;
+    }
+
+    .ecosystem-container {
+        height: 400px;
+        transform: scale(0.6);
+    }
+}
+
+/* Bento Grid "Overflow" Icons */
+.bento-bg-icon {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 240px;
+    /* Slightly larger */
+    height: 240px;
+    object-fit: contain;
+    opacity: 0.6;
+    mix-blend-mode: screen;
+    /* Keep blend mode */
+    transform: rotate(15deg);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 0;
+    pointer-events: none;
+
+    /* Fade edges for better blending */
+    -webkit-mask-image: linear-gradient(135deg, black 40%, transparent 90%);
+    mask-image: linear-gradient(135deg, black 40%, transparent 90%);
+}
+
+/* Bento Item Card Style Override for Gold Border */
+.bento-item {
+    border: 1px solid rgba(255, 165, 0, 0.25) !important;
+    /* Orange/Gold border */
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)) !important;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    /* Ensure blended icon stays inside */
+}
+
+.bento-item:hover {
+    border-color: rgba(255, 165, 0, 0.6) !important;
+    box-shadow: 0 15px 50px -10px rgba(255, 165, 0, 0.15);
+}
+
+/* Specific adjustment for smaller cards */
+
+/* Specific adjustment for smaller cards */
+.bento-item:not(.bento-span-2) .bento-bg-icon {
+    width: 160px;
+    height: 160px;
+    top: -20px;
+    right: -20px;
+}
+
+.bento-item:hover .bento-bg-icon {
+    transform: rotate(0deg) scale(1.1) translate(-10px, 10px);
+    opacity: 0.8;
+}
+
+.bento-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Align text to bottom */
+}
+
+/* Dropdown Menu */
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-trigger {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 220px;
+    background: rgba(10, 10, 30, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.2rem;
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+.dropdown-item:hover {
+    background: rgba(255, 184, 0, 0.1);
+    color: var(--primary);
+}
+
+.dropdown-item i {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Alternating Asymmetric Bento Grid */
+.bento-grid-premium {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* 12-column grid for precise spans */
+    gap: 1.5rem;
+    margin-top: 4rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bento-card {
+    position: relative;
+    background: linear-gradient(160deg, rgba(20, 20, 40, 0.8) 0%, rgba(10, 10, 20, 0.9) 100%);
+    border: 1px solid rgba(245, 166, 35, 0.2);
+    /* Reliable gold border */
+    border-radius: 20px;
+    padding: 2.5rem;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Row 1: Long, Short (7:5 ratio) */
+.bento-card:nth-child(1) {
+    grid-column: span 7;
+}
+
+.bento-card:nth-child(2) {
+    grid-column: span 5;
+}
+
+/* Row 2: Short, Long (5:7 ratio) */
+.bento-card:nth-child(3) {
+    grid-column: span 5;
+}
+
+.bento-card:nth-child(4) {
+    grid-column: span 7;
+}
+
+.bento-card:hover {
+    transform: translateY(-8px);
+    background: rgba(25, 25, 45, 1);
+    border-color: rgba(245, 166, 35, 0.7);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7), 0 0 20px rgba(245, 166, 35, 0.15);
+}
+
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.1;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    background: radial-gradient(circle at 30% 30%, rgba(245, 166, 35, 0.15), transparent 70%);
+}
+
+.bento-card:hover .card-glow {
+    opacity: 0.25;
+}
+
+.card-icon-wrap {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    z-index: 2;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 0 10px rgba(245, 166, 35, 0.2));
+}
+
+.bento-card:hover .card-icon-wrap {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.card-icon-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    max-width: 85%;
+    /* Keep space for icon on right */
+}
+
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.card-content p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.card-link {
+    display: none;
+}
+
+.card-link:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .bento-grid-premium {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .bento-card {
+        min-height: auto;
+        padding: 2rem;
+    }
+}
+
+/* Professional Solar System */
+.solar-system {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.9);
+}
+
+.orbit-ring {
+    position: absolute;
+    border: 1px solid rgba(255, 184, 0, 0.1);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 20px rgba(255, 184, 0, 0.05);
+}
+
+.orbit-ring.orbit-1 {
+    width: 300px;
+    height: 300px;
+}
+
+.orbit-ring.orbit-2 {
+    width: 500px;
+    height: 500px;
+}
+
+.sun-core {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #ffb800 0%, #ff8c00 60%, #ff4500 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #000;
+    box-shadow: 0 0 100px rgba(255, 140, 0, 0.5), inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    letter-spacing: 1px;
+}
+
+.orbit-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    animation: orbit-spin 40s linear infinite;
+}
+
+.orbit-track-2 {
+    animation-duration: 60s;
+    animation-direction: reverse;
+}
+
+.planet-item {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    white-space: nowrap;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.planet-item:hover {
+    background: rgba(255, 184, 0, 0.15);
+    border-color: rgba(255, 184, 0, 0.4);
+    transform: scale(1.1);
+    z-index: 20;
+}
+
+.orbit-track-1 .planet-item:nth-child(1) {
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.orbit-track-1 .planet-item:nth-child(2) {
+    top: 75%;
+    left: 25%;
+}
+
+.orbit-track-1 .planet-item:nth-child(3) {
+    top: 75%;
+    right: 25%;
+}
+
+.orbit-track-2 .planet-item:nth-child(1) {
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.orbit-track-2 .planet-item:nth-child(2) {
+    bottom: 15%;
+    left: 15%;
+}
+
+.orbit-track-2 .planet-item:nth-child(3) {
+    bottom: 15%;
+    right: 15%;
+}
+
+@keyframes orbit-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .solar-system {
+        transform: scale(0.6);
+    }
+
+    .bento-grid-premium {
+        grid-template-columns: 1fr;
+    }
+}

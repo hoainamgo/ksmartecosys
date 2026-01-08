@@ -43,12 +43,12 @@ const EcosystemConfig = {
 
     // Planets (Các hành tinh)
     planets: [
-        { id: 'tuduy', label: 'Tư Duy', icon: 'fas fa-brain', top: '22%', left: '12%', rotation: -15 },
-        { id: 'congnghe', label: 'Công Nghệ', icon: 'fas fa-cogs', top: '8%', left: '50%', rotation: 8 },
-        { id: 'connguoi', label: 'Con Người', icon: 'fas fa-user-tie', top: '15%', right: '8%', rotation: -8 },
-        { id: 'identity', label: 'Identity', icon: 'fas fa-fingerprint', top: '55%', left: '3%', rotation: -5 },
-        { id: 'community', label: 'Community', icon: 'fas fa-users', top: '50%', right: '5%', rotation: 10 },
-        { id: 'automation', label: 'Automation', icon: 'fas fa-robot', bottom: '15%', right: '18%', rotation: -10 }
+        { id: 'tuduy', label: 'Tư Duy', icon: 'fas fa-brain', top: '22%', left: '12%', rotation: -15, url: 'https://ksmart.com.es/mindset' },
+        { id: 'congnghe', label: 'AI Creative', icon: 'fas fa-paint-brush', top: '8%', left: '50%', rotation: 8, url: 'https://ai.ksmart.com.es' },
+        { id: 'connguoi', label: 'Con Người', icon: 'fas fa-user-tie', top: '15%', right: '8%', rotation: -8, url: 'https://ksmart.com.es/community' },
+        { id: 'identity', label: 'YouTube AI', icon: 'fab fa-youtube', top: '55%', left: '3%', rotation: -5, url: 'https://yt.ksmart.com.es' },
+        { id: 'community', label: 'Community', icon: 'fas fa-users', top: '50%', right: '5%', rotation: 10, url: 'https://ksmart.com.es/community' },
+        { id: 'automation', label: 'Automation', icon: 'fas fa-robot', bottom: '15%', right: '18%', rotation: -10, url: 'https://ksmart.com.es/automation' }
     ]
 };
 
@@ -98,6 +98,13 @@ function applyEcosystemConfig() {
                 el.style.transform = `translateY(-50%) rotate(${planet.rotation}deg)`;
             } else {
                 el.style.transform = `rotate(${planet.rotation}deg)`;
+            }
+
+            // ADDED: Navigation on click
+            if (planet.url) {
+                el.style.cursor = 'pointer';
+                el.title = `Go to ${planet.label}`;
+                el.onclick = () => window.location.href = planet.url;
             }
         }
     });

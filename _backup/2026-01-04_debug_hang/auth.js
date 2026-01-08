@@ -43,15 +43,12 @@ function initAuth() {
     }
 
     if (window) {
-        window.addEventListener('click', function (event) {
+        window.onclick = function (event) {
             if (event.target == authModal) {
                 authModal.style.display = "none";
             }
-        });
+        }
     }
-
-    // Run session check immediately
-    checkUserSession();
 
     if (switchModeBtn) {
         switchModeBtn.addEventListener('click', () => {
@@ -136,8 +133,8 @@ function initAuth() {
                 } else {
                     alert(isSignUpMode ? 'Đăng ký thành công! Vui lòng kiểm tra email.' : 'Đăng nhập thành công!');
                     authModal.style.display = 'none';
-                    // Redirect to welcome page after successful login/signup
-                    window.location.href = 'welcome.html';
+                    // Trigger UI update
+                    checkUserSession();
                 }
             } catch (err) {
                 console.error(err);
@@ -202,12 +199,6 @@ function initAuth() {
         const { data: { session } } = await window.supabaseClient.auth.getSession();
         if (session) {
             updateHeaderUI(session.user);
-
-            // Auto-redirect to welcome.html if user is on index.html or root
-            const path = window.location.pathname;
-            if (path.endsWith('/') || path.endsWith('index.html')) {
-                window.location.href = 'welcome.html';
-            }
         }
     }
 
@@ -215,20 +206,8 @@ function initAuth() {
         // Target the auth dropdown container
         const authContainer = document.querySelector('.auth-dropdown');
         if (authContainer) {
-            // Helper to prevent XSS
-            const escapeHtml = (unsafe) => {
-                if (!unsafe) return '';
-                return unsafe
-                    .replace(/&/g, "&amp;")
-                    .replace(/</g, "&lt;")
-                    .replace(/>/g, "&gt;")
-                    .replace(/"/g, "&quot;")
-                    .replace(/'/g, "&#039;");
-            };
-
-            const rawName = (user.user_metadata && user.user_metadata.full_name) || user.email;
-            const userName = escapeHtml(rawName);
-            const userInitial = escapeHtml((rawName && rawName.length > 0) ? rawName.charAt(0).toUpperCase() : '?');
+            const userName = user.user_metadata.full_name || user.email;
+            const userInitial = userName.charAt(0).toUpperCase();
 
             // Replace the entire Login/Join button with User Profile
             authContainer.innerHTML = `
@@ -277,7 +256,5 @@ function initAuth() {
 if (window.ksmartUIReady) {
     initAuth();
 } else {
-    document.addEventListener('KSMART_UI_READY', () => {
-        initAuth();
-    });
+    document.addEventListener('KSMART_UI_READY', initAuth);
 }
