@@ -13,6 +13,17 @@ function renderBlogPosts(data) {
     const container = document.getElementById('blog-container');
     if (!container) return; // Guard clause
 
+    // Helper to prevent XSS
+    const escapeHtml = (unsafe) => {
+        if (!unsafe) return '';
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    };
+
     if (!data.feed || !data.feed.entry) {
         container.innerHTML = '<p style="text-align:center; color: var(--text-muted);">Đang cập nhật bài viết...</p>';
         return;
@@ -54,14 +65,19 @@ function renderBlogPosts(data) {
             snippet = div.textContent.substring(0, 100) + '...';
         }
 
+        const safeTitle = escapeHtml(title);
+        const safeSnippet = escapeHtml(snippet);
+        const safeLink = encodeURI(link);
+        const safeThumb = encodeURI(thumbUrl);
+
         html += `
             <div class="blog-card">
-                <div class="blog-thumb" style="background-image: url('${thumbUrl}')"></div>
+                <div class="blog-thumb" style="background-image: url('${safeThumb}')"></div>
                 <div class="blog-content">
                     <div class="blog-date"><i class="far fa-calendar-alt"></i> ${date}</div>
-                    <a href="${link}" target="_blank" class="blog-title"><h3>${title}</h3></a>
-                    <p class="blog-excerpt">${snippet}</p>
-                    <a href="${link}" target="_blank" class="read-more">Đọc thêm <i class="fas fa-arrow-right"></i></a>
+                    <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="blog-title"><h3>${safeTitle}</h3></a>
+                    <p class="blog-excerpt">${safeSnippet}</p>
+                    <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="read-more">Đọc thêm <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         `;
