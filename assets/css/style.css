@@ -1249,11 +1249,13 @@ h2 {
 }
 
 /* Row 1: Long, Short (7:5 ratio) */
-.bento-card:nth-child(1) {
+.bento-card:nth-child(1),
+.bento-card:nth-child(5) {
     grid-column: span 7;
 }
 
-.bento-card:nth-child(2) {
+.bento-card:nth-child(2),
+.bento-card:nth-child(6) {
     grid-column: span 5;
 }
 
@@ -1294,8 +1296,12 @@ h2 {
     position: absolute;
     top: 2rem;
     right: 2rem;
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
     z-index: 2;
     transition: all 0.5s ease;
     filter: drop-shadow(0 0 10px rgba(245, 166, 35, 0.2));
