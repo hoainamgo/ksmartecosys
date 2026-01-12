@@ -43,12 +43,12 @@ const EcosystemConfig = {
 
     // Planets (Các hành tinh)
     planets: [
-        { id: 'tuduy', label: 'Tư Duy', icon: 'fas fa-brain', top: '22%', left: '12%', rotation: -15, url: 'https://ksmart.com.es/mindset' },
-        { id: 'congnghe', label: 'AI Creative', icon: 'fas fa-paint-brush', top: '8%', left: '50%', rotation: 8, url: 'https://ai.ksmart.com.es' },
-        { id: 'connguoi', label: 'Con Người', icon: 'fas fa-user-tie', top: '15%', right: '8%', rotation: -8, url: 'https://ksmart.com.es/community' },
-        { id: 'identity', label: 'YouTube AI', icon: 'fab fa-youtube', top: '55%', left: '3%', rotation: -5, url: 'https://yt.ksmart.com.es' },
-        { id: 'community', label: 'Community', icon: 'fas fa-users', top: '50%', right: '5%', rotation: 10, url: 'https://ksmart.com.es/community' },
-        { id: 'automation', label: 'Automation', icon: 'fas fa-robot', bottom: '15%', right: '18%', rotation: -10, url: 'https://ksmart.com.es/automation' }
+        { id: 'mindset', label: 'Mindset', icon: 'fas fa-brain', top: '15%', left: '15%', rotation: -15, url: 'https://ksmart.com.es/mindset' },
+        { id: 'aicreative', label: 'AICreative', icon: 'fas fa-paint-brush', top: '5%', left: '50%', rotation: 8, url: 'https://ai.ksmart.com.es' },
+        { id: 'fb-assistant', label: 'FB Assistant', icon: 'fab fa-facebook', top: '25%', right: '10%', rotation: -5, url: 'https://fb.ksmart.com.es' },
+        { id: 'me-assistant', label: 'Me Assistant', icon: 'fas fa-id-card', bottom: '25%', left: '5%', rotation: 10, url: 'https://me.ksmart.com.es' },
+        { id: 'yt-tracker', label: 'YT Tracker', icon: 'fab fa-youtube', bottom: '5%', left: '55%', rotation: -8, url: 'https://yt.ksmart.com.es' },
+        { id: 'automation', label: 'Automation', icon: 'fas fa-robot', bottom: '30%', right: '15%', rotation: -10, url: 'https://ksmart.com.es/automation' }
     ]
 };
 
