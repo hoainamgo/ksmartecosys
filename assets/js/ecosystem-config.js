@@ -44,6 +44,7 @@ const EcosystemConfig = {
     // Planets (Các hành tinh)
     planets: [
         { id: 'academy', label: 'Học Viện', icon: 'fas fa-graduation-cap', top: '10%', left: '30%', rotation: 0, url: 'https://edu.ksmart.com.es' },
+        { id: 'x10ai', label: 'X10 AI', icon: 'fas fa-rocket', top: '15%', right: '35%', rotation: 12, url: 'https://x10ai.ksmart.com.es' },
         { id: 'aicreative', label: 'AICreative', icon: 'fas fa-magic', top: '5%', left: '50%', rotation: 8, url: 'https://ai.ksmart.com.es' },
         { id: 'fb-assistant', label: 'FB Assistant', icon: 'fab fa-facebook-messenger', top: '25%', right: '10%', rotation: -5, url: 'https://fb.ksmart.com.es' },
         { id: 'me-assistant', label: 'Me Assistant', icon: 'fas fa-fingerprint', bottom: '25%', left: '5%', rotation: 10, url: 'https://me.ksmart.com.es' },
